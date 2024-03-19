@@ -1,7 +1,6 @@
 package com.example.nbc_base
 
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -31,8 +30,10 @@ class SignUpActivity : AppCompatActivity() {
                 Toast.makeText(this, "입력되지 않은 정보가 있습니다.", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
-            val intent = Intent(this,HomeActivity::class.java)
-            intent.putExtra("dataFromSignUpName",name)
+            //id,pw 자동 생성을 위한
+            intent.putExtra("dataFromSignUpId", id)
+            intent.putExtra("dataFromSignUpPW", password)
+            setResult(RESULT_OK, intent)
 
             Toast.makeText(this, "회원가입에 성공하셨습니다.", Toast.LENGTH_SHORT).show()
             finish()
