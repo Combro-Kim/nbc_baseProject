@@ -51,8 +51,8 @@ class SignInActivity : AppCompatActivity() {
     }
 
     private fun takeIdPW() {
-        var id = findViewById<EditText>(R.id.signInIdEditText)
-        var password = findViewById<EditText>(R.id.signInPWEditText)
+        val id = findViewById<EditText>(R.id.signInIdEditText)
+        val password = findViewById<EditText>(R.id.signInPWEditText)
         resultLauncher = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result ->

@@ -10,9 +10,6 @@ import android.widget.TextView
 import kotlin.random.Random
 import kotlin.random.nextInt
 
-//회원 가입 페이지에서 입력한 아이디/비밀번호가 회원 가입 버튼을 눌러 로그인 화면으로 이동할 때 자동으로 입력되도록 구현합니다.
-//자기소개 페이지가 시작될 때 5장 중 랜덤으로 1장의 사진이 표시되도록 구현합니다.
-
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +39,8 @@ class HomeActivity : AppCompatActivity() {
         val idData = intent.getStringExtra("dataFromSignInId")
 
         showId.text = "${getString(R.string.id)} : $idData"
-        showName.text = "${getString(R.string.name)} : 스마일"
-        showAge.text = "${getString(R.string.age)} : 101"
+        showName.text = "${getString(R.string.name)} : 포켓몬마스터"
+        showAge.text = "${getString(R.string.age)} : 27"
         showMBTI.text = "MBTI : INFP"
 
     }
