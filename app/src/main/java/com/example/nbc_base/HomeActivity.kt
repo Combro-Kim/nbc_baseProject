@@ -5,13 +5,13 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
+import kotlin.random.Random
+import kotlin.random.nextInt
 
-//HomeActivity를 생성해 주세요.
-//SignInActivity에서 받은 extra data(아이디)를 화면에 표시합니다.
-//ImageView, TextView 외에 각종 Widget을 활용해 자유롭게 화면을 디자인 해주세요.
-//이름, 나이, MBTI 등 자기소개등이 들어가는 위젯을 자유롭게 디자인해주세요.
-//종료 버튼이 눌리면 SignInActivity로 이동하도록 구현합니다. (finish 활용)
+//회원 가입 페이지에서 입력한 아이디/비밀번호가 회원 가입 버튼을 눌러 로그인 화면으로 이동할 때 자동으로 입력되도록 구현합니다.
+//자기소개 페이지가 시작될 때 5장 중 랜덤으로 1장의 사진이 표시되도록 구현합니다.
 
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class HomeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_home)
 
         takeData()
-
+        randomImage()
         backToMain()
 
     }
@@ -46,6 +46,21 @@ class HomeActivity : AppCompatActivity() {
         showAge.text = "${getString(R.string.age)} : 101"
         showMBTI.text = "MBTI : INFP"
 
+    }
+
+    private fun randomImage() { //when 사용 차이 ?
+        val imageList = arrayListOf(
+            R.drawable.icon_pokemon1,
+            R.drawable.icon_pokemon2,
+            R.drawable.icon_pokemon3,
+            R.drawable.icon_pokemon4,
+            R.drawable.icon_pokemon5,
+            R.drawable.icon_pokemon6,
+            R.drawable.icon_pokemon7
+        )
+        val randomNum = Random.nextInt(0..6)
+        val image = findViewById<ImageView>(R.id.logoImageView)
+        image.setImageResource(imageList[randomNum])
     }
 
 }
