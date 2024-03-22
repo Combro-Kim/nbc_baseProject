@@ -9,7 +9,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import kotlin.random.Random
 import kotlin.random.nextInt
-
 class HomeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,9 +54,8 @@ class HomeActivity : AppCompatActivity() {
             R.drawable.icon_pokemon6,
             R.drawable.icon_pokemon7
         )
-        val randomNum = Random.nextInt(0..6)
         val image = findViewById<ImageView>(R.id.logoImageView)
+        val randomNum = Random.nextInt(0..6)
         image.setImageResource(imageList[randomNum])
     }
-
 }

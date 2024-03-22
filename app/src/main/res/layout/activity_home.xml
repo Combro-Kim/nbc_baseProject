@@ -7,19 +7,29 @@
     android:background="@color/layout_background"
     tools:context=".HomeActivity">
 
-
-    <ImageView
-        android:id="@+id/logoImageView"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/imageLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        tools:src="@drawable/icon_pokemon1"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_layout_image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent="0.3"
+        app:layout_constraintHeight_percent="0.33"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logoImageView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:src="@drawable/icon_pokemon1" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <TextView
@@ -31,8 +41,9 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoImageView"
+        app:layout_constraintTop_toBottomOf="@id/imageLayout"
         tools:text="아이디 : hong" />
+
     <TextView
         android:id="@+id/userName"
         android:layout_width="wrap_content"
@@ -44,6 +55,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userId"
         tools:text="이름 : 홍길동" />
+
     <TextView
         android:id="@+id/userAge"
         android:layout_width="wrap_content"
@@ -55,6 +67,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/userName"
         tools:text="나이 : 25" />
+
     <TextView
         android:id="@+id/userMBTI"
         android:layout_width="wrap_content"
@@ -68,16 +81,19 @@
         tools:text="MBTI : AAAA" />
 
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/endButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
-        android:layout_marginBottom="70dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="30dp"
+        android:background="@drawable/bg_red_button"
         android:text="@string/exit"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/white"
+        android:textSize="19sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/userMBTI" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
