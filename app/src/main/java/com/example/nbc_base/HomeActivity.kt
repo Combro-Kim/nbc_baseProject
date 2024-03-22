@@ -4,20 +4,33 @@ package com.example.nbc_base
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import kotlin.random.Random
 import kotlin.random.nextInt
+
 class HomeActivity : AppCompatActivity() {
+    var randomNum = Random.nextInt(0..6)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
-
         takeData()
-        randomImage()
         backToMain()
+        randomImage(randomNum)
 
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        outState.putInt("randomN", randomNum)
+        super.onSaveInstanceState(outState)
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        randomNum = savedInstanceState.getInt("randomN")
+        randomImage(randomNum)
     }
 
     private fun backToMain() {
@@ -44,7 +57,7 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-    private fun randomImage() { //when 사용 차이 ?
+    private fun randomImage(num: Int) { //when 사용 차이 ?
         val imageList = arrayListOf(
             R.drawable.icon_pokemon1,
             R.drawable.icon_pokemon2,
@@ -55,7 +68,6 @@ class HomeActivity : AppCompatActivity() {
             R.drawable.icon_pokemon7
         )
         val image = findViewById<ImageView>(R.id.logoImageView)
-        val randomNum = Random.nextInt(0..6)
         image.setImageResource(imageList[randomNum])
     }
 }
